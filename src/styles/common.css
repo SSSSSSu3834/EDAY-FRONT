@@ -1,0 +1,26 @@
+/* html 기본 적용 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* PC뷰 설정 */
+@media (min-width: 576px) {
+    .wrapper {
+        width: 390px;
+        margin: 0 auto;
+    }
+}
+
+/* CSS 변수 정의 */
+:root {
+    /* color */
+    --white: #ffffff;
+    --gray1: #f0f0f0;
+    --gray2: #a6a6a6;
+    --black: #151515;
+    --green1: #eaf3e7;
+    --green2: #37ae75;
+    --green3: #004029;
+    --pink: #ff566a;
+}
