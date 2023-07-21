@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/common.css';
-import logo from '../../assets/Logo/logo.png';
+import logo from '../../assets/logo/logo.png';
 import styled from 'styled-components';
 
 const Logo = ({ type }) => {
