@@ -1,3 +1,4 @@
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=100&section=header)
 # EFUB 3기 SWS 2팀 E-day Front-end Repository
 
 **프론트 팀원 소개**
