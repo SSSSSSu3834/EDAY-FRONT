@@ -1,20 +1,48 @@
-import React from 'react';
-import Btn from '../components/_common/Btn';
-import Title from '../components/_common/Title';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import GreenBorderBox from '../components/_common/GreenBorderBox';
+import Modal from '../components/_common/Modal';
+import Dday from '../components/_common/Dday';
 
 const MainPage = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const opener = () => setIsModalOpen(true);
+    const closer = () => setIsModalOpen(false);
+    const yes = () => console.log('확인 버튼');
     return (
-        <>
-            <h1>MainPage</h1>
-            <p>어쩌구저쩌구</p>
-            <p style={{ fontFamily: 'GothamBold' }}>D-7</p>
-            <p style={{ fontFamily: 'NanumBarunpen' }}>어쩌구저쩌구</p>
-
-            {/* 버튼 사용 예시 */}
-            <Btn text={'버튼 생성'} type={'deepGreen'} />
-            <Title num={'1.'} title={'공학관 올라가기'} />
-        </>
+        <Wrapper>
+            <Container>
+                <br />
+                <GreenBorderBox>
+                    종합과학관 A동은 ‘종A’, 학관은 ‘학’ 어쩌구저쩌구
+                </GreenBorderBox>
+                <Dday num='6' isGreen={true} />
+                <button onClick={opener}>모달 열기</button>
+            </Container>
+            {isModalOpen ? (
+                <Modal
+                    isModalOpen={isModalOpen}
+                    closer={closer}
+                    btn='2'
+                    btntext1='아니요'
+                    btntext2='네'
+                    maintext='정말 탈퇴하시겠습니까?'
+                    onClick1={closer}
+                    onClick2={yes}
+                />
+            ) : null}
+        </Wrapper>
     );
 };
 
 export default MainPage;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+`;
+const Container = styled.div`
+    width: calc(100% - 48px);
+`;
