@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 // assets
-import up from '../../assets/floatingbtn/floating_up.svg';
-import down from '../../assets/floatingbtn/floating_down.svg';
+import up from '../../assets/_common/floating_up.svg';
+import down from '../../assets/_common/floating_down.svg';
 
 const FloatingBtn = () => {
     // up 버튼 클릭 시
