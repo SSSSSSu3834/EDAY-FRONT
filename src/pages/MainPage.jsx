@@ -12,12 +12,12 @@ const MainPage = () => {
     return (
         <Wrapper>
             <Container>
-                <h1>MainPage</h1>
+                <br />
                 <GreenBorderBox>
                     종합과학관 A동은 ‘종A’, 학관은 ‘학’ 어쩌구저쩌구
                 </GreenBorderBox>
-                <button onClick={opener}>모달 열기</button>
                 <Dday num='6' isGreen={true} />
+                <button onClick={opener}>모달 열기</button>
             </Container>
             {isModalOpen ? (
                 <Modal
@@ -44,6 +44,5 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 const Container = styled.div`
-    border: 1px solid #000;
     width: calc(100% - 48px);
 `;
