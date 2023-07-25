@@ -47,7 +47,7 @@ const InfoBox = ({ btnText, content: Content }) => {
 export default InfoBox;
 
 const BoxWrapper = styled.div`
-    width: 342px;
+    width: calc(100%-48px);
     height: ${props => props.height};
 
     margin-bottom: 20px;
