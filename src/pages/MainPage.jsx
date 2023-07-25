@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import GreenBorderBox from '../components/_common/GreenBorderBox';
 import Modal from '../components/_common/Modal';
 import Dday from '../components/_common/Dday';
+
+import { GetInfo } from '../api/info';
 
 const MainPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const opener = () => setIsModalOpen(true);
     const closer = () => setIsModalOpen(false);
     const yes = () => console.log('확인 버튼');
+
+    useEffect(() => {
+        GetInfo(1);
+    }, []);
     return (
         <Wrapper>
             <Container>
