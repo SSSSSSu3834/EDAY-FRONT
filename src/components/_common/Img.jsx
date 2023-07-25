@@ -1,4 +1,4 @@
-import imageSrc from '../../assets/img.svg';
+import imageSrc from '../../assets/_common/img_icon.svg';
 
 const Img = () => {
     return (

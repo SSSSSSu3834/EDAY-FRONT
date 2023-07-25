@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import userImg from '../../assets/profile/userImg.png';
+import userImg from '../../assets/_common/user_img.svg';
 
 const Profile = ({ type, userName }) => {
     return (

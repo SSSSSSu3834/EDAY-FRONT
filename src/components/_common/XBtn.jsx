@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 // assets
-import defaultbtn from '../../assets/xbtn/xbtn_default.svg';
-import infobtn from '../../assets/xbtn/xbtn_info.svg';
-import sidebarbtn from '../../assets/xbtn/xbtn_sidebar.svg';
+import defaultbtn from '../../assets/_common/xbtn_default.svg';
+import infobtn from '../../assets/_common/xbtn_info.svg';
+import sidebarbtn from '../../assets/_common/xbtn_sidebar.svg';
 
 const XBtn = ({ option, onClick }) => {
     let imageSrc;

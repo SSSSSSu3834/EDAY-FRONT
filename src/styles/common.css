@@ -13,12 +13,6 @@
     }
 }
 
-/* 임시로 만들어 놓음  커밋하기 전에 지울것!*/
-.wrapper {
-    border: 1px solid gray;
-    height: 100vh;
-}
-
 /* CSS 변수 정의 */
 :root {
     /* color */

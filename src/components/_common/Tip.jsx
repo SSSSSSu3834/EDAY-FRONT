@@ -1,4 +1,4 @@
-import imageSrc from '../../assets/tip.svg';
+import imageSrc from '../../assets/_common/tip_icon.svg';
 
 const Tip = () => {
     return (
