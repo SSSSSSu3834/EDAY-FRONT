@@ -14,7 +14,6 @@ const GreenBorder = ({ text }) => {
 export default GreenBorder;
 
 const Border = styled.div`
-    width: 342px;
     height: 0;
     border-bottom: 4px solid var(--green2);
     border-radius: 2px;

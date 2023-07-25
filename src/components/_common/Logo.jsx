@@ -10,11 +10,6 @@ const Logo = ({ type }) => {
 export default Logo;
 
 const LogoImg = styled.img`
-    //로그인 페이지
-    &.login {
-        width: 200px;
-        height: 91.44px;
-    }
     //메인 페이지
     &.main {
         width: 146.53px;
