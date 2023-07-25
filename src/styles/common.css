@@ -13,6 +13,12 @@
     }
 }
 
+/* 임시로 만들어 놓음  커밋하기 전에 지울것!*/
+.wrapper {
+    border: 1px solid gray;
+    height: 100vh;
+}
+
 /* CSS 변수 정의 */
 :root {
     /* color */
@@ -182,4 +188,119 @@
         url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.ttf')
             format('truetype');
     font-display: swap;
+}
+
+/* 공용버튼 */
+.Btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 30px 11px 30px;
+    font-size: 20px;
+    white-space: nowrap;
+    font-family: 'NanumBarunpen';
+    gap: 12px;
+}
+.Btn {
+    /* 화면 너비가 576px 이상일 때 */
+    padding: 11px calc(30px + (100vw - 576px) / 10);
+}
+
+/* 최대 패딩 값을 설정 */
+.Btn {
+    /* 화면 너비가 1200px 이상이면 최대 패딩 값으로 고정 */
+    @media (min-width: 1200px) {
+        padding: 11px 90px; /* 최대 패딩 값으로 설정 */
+    }
+}
+
+.Btn_default {
+    background-color: var(--gray1);
+    color: black;
+}
+
+.Btn_deepGreen {
+    background-color: var(--green3);
+    color: white;
+}
+
+.Btn_lightGreen {
+    background-color: #eaf3e7;
+    color: var(--green3);
+}
+
+/* 공용 추가정보 Title */
+.Title {
+    display: flex;
+    font-family: 'Pretendard-regular';
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 7.9px;
+    margin-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 30px;
+}
+
+.Title p {
+    margin-right: 7px;
+}
+
+/* BodyBox - 추가정보 페이지의 컴포넌트 */
+.Bodybox {
+    background-color: var(--gray1);
+    width: 342px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+
+    justify-content: center;
+}
+
+/* InfoContent */
+.InfoContent {
+    margin-left: 20px;
+    margin-right: 14px;
+    /* margin-bottom: 20px; */
+    font-family: 'Pretendard-regular';
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.InfoContent_top {
+    margin-top: 12px;
+}
+
+.InfoContent_smallDot {
+    display: flex;
+    position: relative;
+}
+
+.InfoContent_smallDot:before {
+    content: '•';
+
+    margin-right: 5px;
+}
+
+.InfoContent_default {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+/* Tip */
+.Tip {
+    margin-left: 20px;
+    margin-right: 14px;
+}
+
+/* Img */
+.Img {
+    margin-left: 10px;
 }
