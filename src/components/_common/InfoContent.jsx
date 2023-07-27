@@ -1,4 +1,4 @@
-import '../../styles/InfoContentStyle.module.css';
+import '../../styles/infoContentStyle.css';
 
 // text는 내용
 // type에는 두가지 - smallDot, top, noMargin
