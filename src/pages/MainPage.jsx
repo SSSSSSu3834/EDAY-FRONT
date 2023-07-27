@@ -13,7 +13,7 @@ const MainPage = () => {
     const yes = () => console.log('확인 버튼');
 
     useEffect(() => {
-        GetInfo(1);
+        // GetInfo(1);
     }, []);
     return (
         <Wrapper>
