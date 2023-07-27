@@ -4,7 +4,7 @@ import GreenBorderBox from '../components/_common/GreenBorderBox';
 import Modal from '../components/_common/Modal';
 import Dday from '../components/_common/Dday';
 
-import { GetInfo } from '../api/info';
+// import { GetInfo } from '../api/info';
 
 const MainPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
