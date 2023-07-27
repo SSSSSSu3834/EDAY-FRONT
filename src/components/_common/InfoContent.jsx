@@ -1,3 +1,5 @@
+import '../../styles/InfoContentStyle.module.css';
+
 // text는 내용
 // type에는 두가지 - smallDot, top, noMargin
 // smallDot: 작은 점이 기호로 들어간 글
