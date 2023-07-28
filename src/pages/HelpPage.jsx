@@ -5,12 +5,28 @@ import XBtn from '../components/_common/XBtn';
 import GreenBorder from '../components/_common/GreenBorder';
 import { hover } from '@testing-library/user-event/dist/hover';
 import Btn from '../components/_common/Btn';
+import Modal from '../components/_common/Modal';
+import { useEffect } from 'react';
 
 const HelpPage = () => {
+    //옵션 선택
     const [selecedVal, setSelectedVal] = useState();
 
     const handleSelect = e => {
         setSelectedVal(e.target.value);
+    };
+
+    // 모달 버튼 클릭 유무를 저장할 state
+    const [showModal, setShowModal] = useState(false);
+
+    //제출하기 버튼 눌렀을 시
+    const handleSubmit = () => {
+        setShowModal(!showModal);
+    };
+
+    //모달창의 닫기 버튼 눌렀을 시
+    const clickBtn = () => {
+        setShowModal(!showModal);
     };
 
     // const handleOptionMouseOver = e => {
@@ -45,11 +61,22 @@ const HelpPage = () => {
                     <Option value='option6'>공강을 보내기 좋은 장소</Option>
                     <Option value='option7'>이화 소식</Option>
                 </SelectOption>
-
                 <Textarea placeholder='잘못된 정보가 있다면 알려주세요.' />
                 <BtnStyle>
-                    <Btn text={'제출하기'} type={'deepGreen'} />
+                    <Btn
+                        text={'제출하기'}
+                        type={'deepGreen'}
+                        onClick={handleSubmit}
+                    />
                 </BtnStyle>
+                <Modal
+                    isModalOpen={showModal}
+                    btn={'1'}
+                    btntext1={'확인'}
+                    maintext={'제출되었습니다. 소중한 정보 감사합니다!'}
+                    onClick1={clickBtn}
+                />
+                ;
             </Wrapper>
         </>
     );
