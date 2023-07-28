@@ -1,0 +1,26 @@
+/* InfoContent */
+.InfoContent {
+    margin-left: 20px;
+    margin-right: 14px;
+    /* margin-bottom: 20px; */
+    font-family: 'Pretendard-regular';
+    font-weight: 400;
+    font-size: 12px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.InfoContent_top {
+    margin-top: 12px;
+}
+
+.InfoContent_smallDot {
+    display: flex;
+    position: relative;
+}
+
+.InfoContent_smallDot:before {
+    content: '•';
+
+    margin-right: 5px;
+}
