@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const Option = ({ option1, option2, option3 }) => {
     return (
         <Wrapper>
-            <OptionBox class='option1'>{option1}</OptionBox>
-            <OptionBox class='option2'>{option2}</OptionBox>
-            <OptionBoxLast class='option3'>{option3}</OptionBoxLast>
+            <OptionBox>{option1}</OptionBox>
+            <OptionBox>{option2}</OptionBox>
+            <OptionBoxLast>{option3}</OptionBoxLast>
         </Wrapper>
     );
 };
