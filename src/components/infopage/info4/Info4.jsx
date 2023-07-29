@@ -6,9 +6,12 @@ import GreenBorder from '../../_common/GreenBorder';
 import Dday from '../../_common/Dday';
 import InfoBox from '../../_common/InfoBox';
 import InfoContent from '../../_common/InfoContent';
+import Info4Content_1 from './Info4Content_1';
+import Info4Content_2 from './Info4Content_2';
+import Btn from '../../_common/Btn';
 
 //img
-import D_4 from '../../../assets/infopage/D_4.svg';
+import D_4 from '../../../assets/infopage/info4/D_4.svg';
 
 const Info4 = () => {
     return (
@@ -30,9 +33,13 @@ const Info4 = () => {
                 />
                 <InfoBox
                     btnText={'학생 지원 서비스'}
-                    content={<InfoContent text={'어쩌구'} />}
+                    content={<Info4Content_1 />}
                 />
-                <InfoBox btnText={'기타 서비스'} />
+                <InfoBox btnText={'기타 서비스'} content={<Info4Content_2 />} />
+
+                <BtnStyle>
+                    <Btn text={'메인페이지로 돌아가기'} type={'deepGreen'} />
+                </BtnStyle>
             </Wrapper>
         </>
     );
@@ -50,4 +57,10 @@ const Head = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 55px;
+`;
+
+const BtnStyle = styled.div`
+    text-align: center;
+    margin-top: 186.98px;
+    margin-bottom: 22px;
 `;
