@@ -35,7 +35,7 @@ const InfoBox = ({ btnText, content: Content }) => {
                     <div>
                         <XBtn option='info' onClick={handleXBtnClick} />
                         <ContentWrapper ref={contentRef}>
-                            <Content />
+                            {Content}
                         </ContentWrapper>
                     </div>
                 )}
