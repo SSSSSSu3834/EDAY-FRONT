@@ -32,7 +32,6 @@ const Content1 = () => {
                 type='top'
                 text='수강신청 사이트에서 확인하기'
             ></InfoContent>
-            <InfoContent text={NumberedText}></InfoContent>
 
             <Img1 src={pic6_1}></Img1>
 
@@ -54,11 +53,8 @@ const Content2 = () => {
 const Content3 = () => {
     return (
         <>
-            <div>
-                10분 간 움직임이 없으면 자동으로 로그아웃 돼요! 수강신청
-                사이트에서 제공하는 10분 타이머가 다 지나기 전에 사이트 내의
-                새로고침 버튼을 누르도록 합시다.
-            </div>
+            <Title num='1.' title='수업시간'></Title>
+            <GreenBorder></GreenBorder>
         </>
     );
 };
