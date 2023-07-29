@@ -32,7 +32,7 @@ const InfoBox = ({ btnText, content: Content }) => {
                 {boxClass === 'btn' ? (
                     <div>{btnText}</div>
                 ) : (
-                    <div>
+                    <div className='boxContent'>
                         <XBtn option='info' onClick={handleXBtnClick} />
                         <ContentWrapper ref={contentRef}>
                             {Content}
@@ -47,7 +47,7 @@ const InfoBox = ({ btnText, content: Content }) => {
 export default InfoBox;
 
 const BoxWrapper = styled.div`
-    width: calc(100%-48px);
+    width: calc(100% - 48px);
     height: ${props => props.height};
 
     margin-bottom: 20px;
@@ -74,6 +74,10 @@ const Box = styled.div`
 
     &.box {
         background-color: var(--gray1);
+    }
+
+    & > .boxContent {
+        width: 100%;
     }
 `;
 
