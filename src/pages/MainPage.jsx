@@ -6,6 +6,7 @@ import { HiOutlineMenu } from 'react-icons/hi';
 import Dday from '../components/_common/Dday';
 import Btn from '../components/_common/Btn';
 import Map from '../components/mainpage/Map';
+import SideBar from '../components/mainpage/SideBar';
 
 import infobefore from '../assets/mainpage/info_before.svg';
 import infoafter from '../assets/mainpage/info_after.svg';
@@ -54,7 +55,6 @@ const MainPage = () => {
                 { dDay: 4 },
                 { dDay: 3 },
                 { dDay: 2 },
-                { dDay: 1 },
             ].map(row => row.dDay),
         );
         setDoneList(
@@ -66,7 +66,7 @@ const MainPage = () => {
                 { dDay: 2 },
             ].map(row => row.dDay),
         );
-        setCloseList([].map(row => row.dDay));
+        setCloseList([{ dDay: 1 }].map(row => row.dDay));
     }, []);
 
     // 0 - closeList (src close)
@@ -118,12 +118,20 @@ const MainPage = () => {
         console.log(dDayState);
     });
 
+    const [isSidebar, setIsSidebar] = useState(false);
+    const opener = () => setIsSidebar(true);
+    const closer = () => setIsSidebar(false);
+
     return (
         <Wrapper>
             <HeaderContainer>
                 <div className='inner'>
                     <Logo type='main' />
-                    <HiOutlineMenu size='10%' color='var(--green3)' />
+                    <HiOutlineMenu
+                        size='10%'
+                        color='var(--green3)'
+                        onClick={opener}
+                    />
                 </div>
                 <div className='text'>그대가 바라는 미래, 이화</div>
             </HeaderContainer>
@@ -157,6 +165,13 @@ const MainPage = () => {
                     />
                 </FooterContainer>
             )}
+            {isSidebar ? (
+                <SideBar
+                    isOpen={isSidebar}
+                    closer={closer}
+                    dDayState={dDayState}
+                />
+            ) : null}
         </Wrapper>
     );
 };
@@ -183,7 +198,7 @@ const HeaderContainer = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 40px;
+        margin-top: 35px;
     }
     .text {
         font-family: 'NanumBarunpen';
