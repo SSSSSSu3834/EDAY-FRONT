@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GreenBorder = ({ text }) => {
+//infoPage에서 사용할 경우에만 type에 info를 넘겨주면 됩니다.
+const GreenBorder = ({ text, type }) => {
     return (
         <>
-            <Border>
+            <Border className={type}>
                 <Text>{text}</Text>
             </Border>
         </>
@@ -14,11 +15,15 @@ const GreenBorder = ({ text }) => {
 export default GreenBorder;
 
 const Border = styled.div`
-    width: 342px;
     height: 0;
     border-bottom: 4px solid var(--green2);
     border-radius: 2px;
     position: relative;
+
+    &.info {
+        width: 390px;
+        border-radius: 0px;
+    }
 `;
 
 const Text = styled.div`

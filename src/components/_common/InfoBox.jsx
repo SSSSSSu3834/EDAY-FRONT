@@ -9,6 +9,16 @@ const InfoBox = ({ btnText, content: Content }) => {
     const contentRef = useRef(null);
     const [contentHeight, setContentHeight] = useState(0); // Content 컴포넌트 높이
 
+    // Box 클릭 시 (클래스 이름이 btn일 경우)
+    const handleBoxClick = () => {
+        boxClass === 'btn' && setBoxClass('box');
+    };
+
+    // XBtn 클릭 시
+    const handleXBtnClick = () => {
+        setBoxClass('btn');
+    };
+
     // Content 컴포넌트 높이 측정
     useEffect(() => {
         if (contentRef.current) {
@@ -18,24 +28,14 @@ const InfoBox = ({ btnText, content: Content }) => {
 
     return (
         <BoxWrapper height={boxClass === 'box' ? `${contentHeight}px` : '59px'}>
-            <Box
-                className={boxClass}
-                onClick={() => {
-                    boxClass === 'btn' && setBoxClass('box');
-                }}
-            >
+            <Box className={boxClass} onClick={handleBoxClick}>
                 {boxClass === 'btn' ? (
                     <div>{btnText}</div>
                 ) : (
                     <div>
-                        <XBtn
-                            option='info'
-                            onClick={() => {
-                                boxClass === 'box' && setBoxClass('btn');
-                            }}
-                        />
+                        <XBtn option='info' onClick={handleXBtnClick} />
                         <ContentWrapper ref={contentRef}>
-                            <Content />
+                            {Content}
                         </ContentWrapper>
                     </div>
                 )}
@@ -47,7 +47,7 @@ const InfoBox = ({ btnText, content: Content }) => {
 export default InfoBox;
 
 const BoxWrapper = styled.div`
-    width: 342px;
+    width: calc(100%-48px);
     height: ${props => props.height};
 
     margin-bottom: 20px;
