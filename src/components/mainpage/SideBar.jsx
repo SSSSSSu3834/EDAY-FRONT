@@ -63,7 +63,11 @@ const SideBar = props => {
                             <Inner style={{ marginBottom: '15px' }}>
                                 <Flex style={{ marginBottom: '20px' }}>
                                     <Logo type='sidebar' />
-                                    <CgClose size='30' color='var(--white)' />
+                                    <CgClose
+                                        size='30'
+                                        color='var(--white)'
+                                        onClick={fadeOut}
+                                    />
                                 </Flex>
                                 <Flex>
                                     <Profile
