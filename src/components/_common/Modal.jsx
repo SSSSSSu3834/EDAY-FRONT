@@ -26,7 +26,6 @@ const Modal = props => {
             window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
         };
     }, []);
-    console.log(onClick1, onClick2);
     return (
         <>
             {isModalOpen ? (
