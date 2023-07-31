@@ -1,36 +1,26 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import XBtn from '../_common/XBtn';
 import Dday from '../_common/Dday';
 import GreenBorder from '../_common/GreenBorder';
 import GreenBorderBox from '../_common/GreenBorderBox';
 
-const Header = ({ num, text }) => {
-    const greenBorderBoxRef = useRef(null);
-    const greenBorderBoxHeight = useRef(0);
-
-    useEffect(() => {
-        if (greenBorderBoxRef.current) {
-            greenBorderBoxHeight.current =
-                greenBorderBoxRef.current.clientHeight;
-            console.log('GreenBorderBox Height:', greenBorderBoxHeight.current);
-        }
-    });
+const Header = () => {
+    const navigate = useNavigate();
+    const { dDay } = useParams();
 
     return (
         <>
             <Top>
-                <Dday num='6'></Dday>
+                <Dday num={dDay} />
                 <XBtnContainer>
-                    <XBtn />
+                    <XBtn onClick={() => navigate(`/answer/${dDay}`)} />
                 </XBtnContainer>
             </Top>
             <GreenBorder text='추가 정보 제목 위치' />
-            <BoxWrapper ref={greenBorderBoxRef}>
-                <GreenBorderBox>
-                    퀴즈내용 어쩌고 가나다라마바ㄴㄴㅁㄻ니ㅓㄹ 아니아
-                    거라호미ㅏㅓㅣ
-                </GreenBorderBox>
+            <BoxWrapper>
+                <GreenBorderBox>이화여대 공식 색상은 __색이다.</GreenBorderBox>
             </BoxWrapper>
         </>
     );

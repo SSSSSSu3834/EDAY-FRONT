@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import Header from '../components/quizpage/Header';
 import Option from '../components/quizpage/Option';
 import Btn from '../components/_common/Btn';
-import styled from 'styled-components';
 
 const QuizPage = () => {
     const [isCorrect, setIsCorrect] = useState(true);
@@ -21,6 +21,28 @@ const QuizPage = () => {
             navigate(`/answer/${dDay}`);
         }
     };
+
+    //퀴즈 줄 개수(dDay)에 따라 '정답 확인하기' 버튼과 선택지들 사이의 간격 다르게 하기
+    let btnMargin;
+    //'정답 확인하기' 버튼+'다시 생각해보세요(16px)'를 감싼 wrapper를 기준으로 한 margin-top
+    switch (dDay) {
+        case '1': //한 줄 일때
+            btnMargin = '103px';
+            break;
+        case '2': //두 줄 일때
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+            btnMargin = '78px';
+            break;
+        case '7': //세 줄 일때
+            btnMargin = '53px';
+            break;
+        default:
+            btnMargin = '78px';
+            break;
+    }
 
     return (
         <>
@@ -40,30 +62,25 @@ const QuizPage = () => {
             ) : dDay === '7' ? (
                 <Option option1='노노' option2='d7' option3='d7_' />
             ) : null}
-            <Wrapper>
+            <BtnWrapper style={{ marginTop: btnMargin }}>
                 {isCorrect ? <Retry /> : <Retry>다시 생각해보세요!</Retry>}
                 <Btn
                     type='deepGreen'
                     text='정답 확인하기'
                     onClick={handleCheckAnswer}
                 />
-            </Wrapper>
+            </BtnWrapper>
         </>
     );
 };
 
 export default QuizPage;
 
-const Wrapper = styled.div`
+const BtnWrapper = styled.div`
     height: 75px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    position: absolute;
-    bottom: 130px;
-    left: 0;
-    right: 0;
 `;
 
 const Retry = styled.div`
