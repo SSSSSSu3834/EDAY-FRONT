@@ -1,4 +1,4 @@
-import '../../styles/BtnStyle.module.css';
+import '../../styles/BtnStyle.css';
 
 const Btn = ({ text, type, onClick }) => {
     const btnType = ['deepGreen', 'lightGreen'].includes(type)
