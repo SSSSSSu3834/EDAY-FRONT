@@ -77,7 +77,7 @@ const SideBar = props => {
                                     <Level>{`Lv.${profile.level}`}</Level>
                                 </Flex>
                             </Inner>
-                            <GreenBorder text={profile.titleName} />
+                            <GreenBorder text={profile.titleName} type='main' />
                             <Right onClick={() => nav('/mypage')}>
                                 마이페이지
                                 <BsChevronRight
