@@ -1,6 +1,7 @@
 import imageSrc from '../../assets/_common/img_icon.svg';
 import styled from 'styled-components';
 import XBtn from './XBtn';
+import { useEffect } from 'react';
 
 const Img = ({ isImgOpened, closer, img, onClick }) => {
     return (
