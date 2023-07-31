@@ -19,6 +19,8 @@ const Border = styled.div`
     border-bottom: 4px solid var(--green2);
     border-radius: 2px;
     position: relative;
+    display: flex;
+    justify-content: center;
 
     &.info {
         width: 390px;
