@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
+import { styled } from 'styled-components';
 
 import GreenBorder from '../../_common/GreenBorder';
 import InfoContent from '../../_common/InfoContent';
@@ -7,15 +8,25 @@ import Title from '../../_common/Title';
 import XBtn from '../../_common/XBtn';
 import Img from '../../_common/Img';
 
+import { useBodyScrollLock } from '../useBodyScrollLock';
+
 // 이미지
 import englishlounge from '../../../assets/infopage/info4/englishlounge.svg';
-import { styled } from 'styled-components';
 
 const Info4Content_2 = () => {
     const [isImgOpened, setIsImgOpened] = useState(false);
 
-    const opener = () => setIsImgOpened(true);
-    const closer = () => setIsImgOpened(false);
+    const { lockScroll, openScroll } = useBodyScrollLock();
+
+    const handleOpen = () => {
+        lockScroll();
+        setIsImgOpened(true);
+    };
+
+    const handleClose = () => {
+        openScroll();
+        setIsImgOpened(false);
+    };
 
     return (
         <div>
@@ -178,14 +189,15 @@ const Info4Content_2 = () => {
                 />
                 <ImgWrapper>
                     <Img
-                        onClick={opener}
-                        closer={closer}
+                        onClick={handleOpen}
+                        closer={handleClose}
                         img={englishlounge}
                         isImgOpened={isImgOpened}
                     />
                 </ImgWrapper>
             </Overlay>
-            <InfoContent text={'  '} />
+            <InfoContent />
+            <InfoContent />
         </div>
     );
 };
@@ -199,6 +211,7 @@ const ImgWrapper = styled.div`
     justify-content: end;
 
     margin-right: 120px;
+    margin-bottom: 2px;
 `;
 
 const Overlay = styled.div`

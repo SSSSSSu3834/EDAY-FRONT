@@ -1,20 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import XBtn from '../../_common/XBtn';
 import GreenBorder from '../../_common/GreenBorder';
 import Dday from '../../_common/Dday';
 import InfoBox from '../../_common/InfoBox';
-import InfoContent from '../../_common/InfoContent';
-import Info4Content_1 from './Info4Content_1';
-import Info4Content_2 from './Info4Content_2';
 import Btn from '../../_common/Btn';
-import { useNavigate } from 'react-router-dom';
+import Info3Content_1 from './Info3Content_1';
+import Info3Content_2 from './Info3Content_2';
+import FloatingBtn from '../../_common/FloatingBtn';
 
-//img
-import D_4 from '../../../assets/infopage/info4/D_4.svg';
+// 이미지
+import D_3 from '../../../assets/infopage/info3/D_3.svg';
 
-const Info4 = () => {
+const Info3 = () => {
     const navigate = useNavigate();
 
     const goMain = () => {
@@ -25,24 +25,23 @@ const Info4 = () => {
         <>
             <Wrapper>
                 <Head>
-                    <Dday num={'4'} />
+                    <Dday num={'3'} />
 
                     <XBtn />
                 </Head>
-                <GreenBorder text={'학생 지원'} />
-                <img
-                    src={D_4}
-                    style={{
-                        marginTop: '40px',
-                        marginLeft: '66px',
-                        marginBottom: '40px',
-                    }}
-                />
-                <InfoBox
-                    btnText={'학생 지원 서비스'}
-                    content={<Info4Content_1 />}
-                />
-                <InfoBox btnText={'기타 서비스'} content={<Info4Content_2 />} />
+                <GreenBorder text={'공강을 보내기 좋은 장소'} />
+                <MapImg>
+                    <img
+                        src={D_3}
+                        style={{
+                            marginTop: '40px',
+                            marginBottom: '40px',
+                        }}
+                    />
+                </MapImg>
+                <FloatingBtn />
+                <InfoBox btnText={'도서관'} content={<Info3Content_1 />} />
+                <InfoBox btnText={'기타 장소'} content={<Info3Content_2 />} />
 
                 <BtnStyle>
                     <Btn
@@ -56,7 +55,7 @@ const Info4 = () => {
     );
 };
 
-export default Info4;
+export default Info3;
 
 const Wrapper = styled.div`
     margin-top: 12px;
@@ -72,6 +71,10 @@ const Head = styled.div`
 
 const BtnStyle = styled.div`
     text-align: center;
+    margin-top: 166.98px;
     margin-bottom: 22px;
-    margin-top: 186.98px;
+`;
+
+const MapImg = styled.div`
+    text-align: center;
 `;
