@@ -116,11 +116,12 @@ const SelectOption = styled.select`
     padding-left: 16px;
     border-radius: 4px 4px 0 0;
     margin-bottom: 44px;
+    outline: none;
 `;
 
 const Option = styled.option`
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-family: Pretendard;
     font-weight: 500;
     font-size: 12px;
@@ -131,7 +132,7 @@ const Option = styled.option`
     border: none;
 
     &:hover {
-        background-color: lightgreen; /* 마우스 오버 시 배경색을 초록색으로 변경 */
+        background: lightgreen; /* 마우스 오버 시 배경색을 초록색으로 변경 */
     }
 `;
 
@@ -142,6 +143,7 @@ const Textarea = styled.textarea`
     padding: 16px 16px 16px 16px;
     resize: none;
     border: none;
+    outline: none;
 
     &::placeholder {
         color: #37ae75;
