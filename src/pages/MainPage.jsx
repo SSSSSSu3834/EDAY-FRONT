@@ -13,7 +13,7 @@ import infoafter from '../assets/mainpage/info_after.svg';
 import background from '../assets/mainpage/background.svg';
 import emptymap from '../assets/mainpage/empty_map.svg';
 
-import { GetInfo } from '../api/info';
+import { GetMember } from '../api/member';
 
 const MainPage = () => {
     const nav = useNavigate();
