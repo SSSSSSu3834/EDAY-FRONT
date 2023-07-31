@@ -11,12 +11,12 @@ import Tip from '../_common/Tip';
 import InfoContent from '../_common/InfoContent';
 import FloatingBtn from '../_common/FloatingBtn';
 
-import map5 from '../../assets/infopage/dDay5_map.svg';
-import pic5_1 from '../../assets/infopage/dDay5_1.svg';
-import pic5_2 from '../../assets/infopage/dDay5_2.svg';
-import pic5_3 from '../../assets/infopage/dDay5_3.svg';
-import pic5_4 from '../../assets/infopage/dDay5_4.svg';
-import pic5_5 from '../../assets/infopage/dDay5_5.svg';
+import map5 from '../../assets/infopage/d5/dDay5_map.svg';
+import pic5_1 from '../../assets/infopage/d5/dDay5_1.svg';
+import pic5_2 from '../../assets/infopage/d5/dDay5_2.svg';
+import pic5_3 from '../../assets/infopage/d5/dDay5_3.svg';
+import pic5_4 from '../../assets/infopage/d5/dDay5_4.svg';
+import pic5_5 from '../../assets/infopage/d5/dDay5_5.svg';
 
 const ImgWrapper = styled.div`
     display: flex;
