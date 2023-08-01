@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import InfoBox from '../_common/InfoBox';
@@ -17,6 +17,8 @@ import pic5_2 from '../../assets/infopage/d5/dDay5_2.svg';
 import pic5_3 from '../../assets/infopage/d5/dDay5_3.svg';
 import pic5_4 from '../../assets/infopage/d5/dDay5_4.svg';
 import pic5_5 from '../../assets/infopage/d5/dDay5_5.svg';
+
+import { GetInfo } from '../../api/info';
 
 const ImgWrapper = styled.div`
     display: flex;
@@ -131,6 +133,17 @@ const content3 = (
 const Info5 = () => {
     const navigate = useNavigate();
     const { dDay } = useParams();
+    const [borderText, setBorderText] = useState({});
+
+    //GreenBorder의 text 가져오기
+    useEffect(() => {
+        GetInfo(5)
+            .then(res => {
+                console.log(res.data);
+                setBorderText(res.data);
+            })
+            .catch(err => console.log(err));
+    }, []);
 
     return (
         <>
@@ -144,7 +157,7 @@ const Info5 = () => {
                     />
                 </XBtnContainer>
             </Top>
-            <GreenBorder text='추가 정보 제목 위치' />
+            <GreenBorder text={borderText.headline} />
             <MapWrapper>
                 <img src={map5} alt='d-5 지도' />
             </MapWrapper>

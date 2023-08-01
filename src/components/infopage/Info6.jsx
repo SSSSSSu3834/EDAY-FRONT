@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import InfoBox from '../_common/InfoBox';
@@ -17,6 +17,8 @@ import pic6_2 from '../../assets/infopage/d6/dDay6_2.svg';
 import pic6_3 from '../../assets/infopage/d6/dDay6_3.svg';
 import pic6_4 from '../../assets/infopage/d6/dDay6_4.svg';
 import pic6_5 from '../../assets/infopage/d6/dDay6_5.svg';
+
+import { GetInfo } from '../../api/info';
 
 const ImgWrapper = styled.div`
     display: flex;
@@ -168,6 +170,7 @@ const content2 = (
         <InfoContent text='한 학기에 최대 18학점(세미나/실험까지 포함하면 19학점)까지 수강 신청이 가능해요! 직전학기 학점이 3.75이상이면 21학점을 들을 수 있답니다. 직전학기에 18학점보다 적게 들었다면, 해당 여유 학점이 이월되어 다음 학기에 추가로 들을 수 있어요. 각자의 상황에 맞게 수강 가능 학점을 확인해둡시다!' />
     </>
 );
+
 const content3 = (
     <>
         <Title num='1.' title='수업시간' />
@@ -203,6 +206,18 @@ const Info6 = () => {
     const navigate = useNavigate();
     const { dDay } = useParams();
 
+    const [borderText, setBorderText] = useState({});
+
+    //GreenBorder의 text 가져오기
+    useEffect(() => {
+        GetInfo(6)
+            .then(res => {
+                console.log(res.data);
+                setBorderText(res.data);
+            })
+            .catch(err => console.log(err));
+    }, []);
+
     return (
         <>
             <Top>
@@ -215,7 +230,7 @@ const Info6 = () => {
                     />
                 </XBtnContainer>
             </Top>
-            <GreenBorder text='추가 정보 제목 위치' />
+            <GreenBorder text={borderText.headline} />
             <MapWrapper>
                 <img src={map6} alt='d-6 지도' />
             </MapWrapper>
