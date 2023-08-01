@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import XBtn from '../_common/XBtn';
@@ -6,21 +6,37 @@ import Dday from '../_common/Dday';
 import GreenBorder from '../_common/GreenBorder';
 import GreenBorderBox from '../_common/GreenBorderBox';
 
-const Header = () => {
+import { GetQuiz } from '../../api/quiz';
+
+const Header = ({ num }) => {
     const navigate = useNavigate();
     const { dDay } = useParams();
+
+    const [borderText, setBorderText] = useState({});
+    const [question, setQuestion] = useState({});
+
+    //Quiz 내용 & 주제 가져오기
+    useEffect(() => {
+        GetQuiz(num)
+            .then(res => {
+                console.log(res.data);
+                setBorderText(res.data);
+                setQuestion(res.data);
+            })
+            .catch(err => console.log(err));
+    }, []);
 
     return (
         <>
             <Top>
                 <Dday num={dDay} />
                 <XBtnContainer>
-                    <XBtn onClick={() => navigate(`/answer/${dDay}`)} />
+                    <XBtn onClick={() => navigate(-1)} />
                 </XBtnContainer>
             </Top>
-            <GreenBorder text='추가 정보 제목 위치' />
+            <GreenBorder text={borderText.topic} />
             <BoxWrapper>
-                <GreenBorderBox>이화여대 공식 색상은 __색이다.</GreenBorderBox>
+                <GreenBorderBox>{question.quizContent}</GreenBorderBox>
             </BoxWrapper>
         </>
     );
