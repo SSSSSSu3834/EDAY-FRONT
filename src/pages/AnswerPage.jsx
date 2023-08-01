@@ -42,7 +42,7 @@ const AnswerPage = () => {
             <Header num={dDay} />
             <AnswerWrapper style={{ marginTop: answerMargin }}>
                 <CheckAnswer>정답확인 :</CheckAnswer>
-                <Answer>정답{answerContent}</Answer>
+                <Answer>초록{answerContent}</Answer>
             </AnswerWrapper>
             <AnswerInfo>
                 {quizDescription} 무인복합기는 모든 건물에 있지만 흑백은 약
