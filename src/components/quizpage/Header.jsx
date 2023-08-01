@@ -34,9 +34,12 @@ const Header = ({ num }) => {
                     <XBtn onClick={() => navigate(-1)} />
                 </XBtnContainer>
             </Top>
-            <GreenBorder text={borderText.topic} />
+            <GreenBorder text='이화 소식' />
+            {/* <GreenBorder text={borderText.topic} /> */}
             <BoxWrapper>
-                <GreenBorderBox>{question.quizContent}</GreenBorderBox>
+                <GreenBorderBox>
+                    {question.quizContent}이화여대 공식 색상은 __이다.
+                </GreenBorderBox>
             </BoxWrapper>
         </>
     );

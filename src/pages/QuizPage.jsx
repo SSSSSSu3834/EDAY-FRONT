@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/quizpage/Header';
 import Option from '../components/quizpage/Option';
+import OptionTemp from '../components/quizpage/OptionTemp';
 import Btn from '../components/_common/Btn';
 
 import { AnswerContext } from '../components/answerpage/AnswerProvider';
@@ -10,7 +11,7 @@ import { AnswerContext } from '../components/answerpage/AnswerProvider';
 const QuizPage = () => {
     const { dDay } = useParams();
     const navigate = useNavigate();
-    const [isCorrect, setIsCorrect] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(true);
     const { isAnswer } = useContext(AnswerContext);
 
     const handleCheckAnswer = () => {
@@ -47,7 +48,7 @@ const QuizPage = () => {
     return (
         <>
             <Header num={dDay} />
-            <Option num={dDay} />
+            <OptionTemp num={dDay} />
             <BtnWrapper style={{ marginTop: btnMargin }}>
                 {isCorrect ? <Retry /> : <Retry>다시 생각해보세요!</Retry>}
                 <Btn
