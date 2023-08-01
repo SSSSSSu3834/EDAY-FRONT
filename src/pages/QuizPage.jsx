@@ -5,16 +5,19 @@ import Header from '../components/quizpage/Header';
 import Option from '../components/quizpage/Option';
 import Btn from '../components/_common/Btn';
 
-const QuizPage = ({ isTrue }) => {
+import { AnswerContext } from '../components/answerpage/AnswerProvider';
+
+const QuizPage = () => {
     const { dDay } = useParams();
     const navigate = useNavigate();
-    const [retry, setRetry] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
+    const { isAnswer } = useContext(AnswerContext);
 
     const handleCheckAnswer = () => {
-        setRetry(isTrue);
+        setIsCorrect(isAnswer); //isAnswer가 true면 retry가 안뜸
 
-        if (isTrue) {
-            //modal 띄우기
+        if (isAnswer) {
+            //modal+confetti 띄우기
             navigate(`/answer/${dDay}`);
         }
     };
@@ -46,7 +49,7 @@ const QuizPage = ({ isTrue }) => {
             <Header num={dDay} />
             <Option num={dDay} />
             <BtnWrapper style={{ marginTop: btnMargin }}>
-                {retry ? <Retry>다시 생각해보세요!</Retry> : <Retry />}
+                {isCorrect ? <Retry /> : <Retry>다시 생각해보세요!</Retry>}
                 <Btn
                     type='deepGreen'
                     text='정답 확인하기'
