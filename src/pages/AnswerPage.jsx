@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../components/quizpage/Header';
 import Btn from '../components/_common/Btn';
 
-const AnswerPage = ({ quizDescription }) => {
+import { AnswerContext } from '../components/answerpage/AnswerProvider';
+
+const AnswerPage = () => {
     const navigate = useNavigate();
     const { dDay } = useParams();
+    const { quizDescription } = useContext(AnswerContext);
+    const { answerContent } = useContext(AnswerContext);
 
     //퀴즈 줄 개수(dDay)에 따라 정답 버튼과 퀴즈 사이의 간격 &
     //설명 박스와 '추가정보 보러가기'버튼 사이의 간격 다르게 하기
@@ -38,7 +42,7 @@ const AnswerPage = ({ quizDescription }) => {
             <Header num={dDay} />
             <AnswerWrapper style={{ marginTop: answerMargin }}>
                 <CheckAnswer>정답확인 :</CheckAnswer>
-                <Answer>정답</Answer>
+                <Answer>정답{answerContent}</Answer>
             </AnswerWrapper>
             <AnswerInfo>
                 {quizDescription} 무인복합기는 모든 건물에 있지만 흑백은 약
