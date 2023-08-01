@@ -26,7 +26,6 @@ const Modal = React.memo(props => {
             window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
         };
     }, []);
-    console.log(onClick1, onClick2);
     return (
         <>
             {isModalOpen ? (
@@ -91,6 +90,9 @@ const Background = styled.div`
             opacity: 1;
         }
     }
+    @media (min-width: 576px) {
+        width: 390px;
+    }
 `;
 const ModalBlock = styled.div`
     position: relative;
@@ -105,6 +107,9 @@ const ModalBlock = styled.div`
             opacity: 1;
             margin-top: 0;
         }
+    }
+    @media (min-width: 576px) {
+        width: calc(390px - 48px);
     }
 `;
 const Text = styled.div`

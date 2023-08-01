@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GreenBorder = ({ text }) => {
+//infoPage에서 사용할 경우에는 type에 info,
+//mainPage에서 사용할 경우에는 type에 main을 넘겨주면 됩니다.
+const GreenBorder = ({ text, type }) => {
     return (
         <>
-            <Border>
+            <Border className={type}>
                 <Text>{text}</Text>
             </Border>
         </>
@@ -18,6 +20,16 @@ const Border = styled.div`
     border-bottom: 4px solid var(--green2);
     border-radius: 2px;
     position: relative;
+
+    &.info {
+        width: 390px;
+        border-radius: 0px;
+    }
+
+    &.main {
+        display: flex;
+        justify-content: center;
+    }
 `;
 
 const Text = styled.div`
